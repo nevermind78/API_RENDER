@@ -11,6 +11,18 @@ with open(image_path, 'rb') as file:
     files = {'file': file}
     data = {'model': 'Logistic Regression'}  # Indiquez le modèle ici
     response = requests.post(url, files=files, data=data)
+fmnist_classes = [
+    "T-shirt/top",  # Classe 0
+    "Trouser",      # Classe 1
+    "Pullover",     # Classe 2
+    "Dress",        # Classe 3
+    "Coat",         # Classe 4
+    "Sandal",       # Classe 5
+    "Shirt",        # Classe 6
+    "Sneaker",      # Classe 7
+    "Bag",          # Classe 8
+    "Ankle boot"    # Classe 9
+]
 
 # Afficher la réponse
-print(response.json())
+print(fmnist_classes[response.json()['prediction']])
